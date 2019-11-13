@@ -4,6 +4,7 @@ public class CameraFollowScript : MonoBehaviour
 {
 
     public GameObject followObject;
+    public float lerpValue = 0.1f;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class CameraFollowScript : MonoBehaviour
     {
         if (followObject)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(followObject.transform.position.x, followObject.transform.position.y, transform.position.z), .1f);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(followObject.transform.position.x, followObject.transform.position.y, transform.position.z), lerpValue);
         }
     }
 }

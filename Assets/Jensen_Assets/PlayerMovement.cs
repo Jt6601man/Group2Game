@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed = 5, walkSpeed = 5;
+    public float speed = 5;
 
-    float localScaleXP2;
-    float localScaleYP2;
+    float localScaleX;
+    float localScaleY;
 
     private Animator anim;
     private Rigidbody2D myRigidbody;
@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         
-        localScaleXP2 = transform.localScale.x;
-        localScaleYP2 = transform.localScale.y;
+        localScaleX = transform.localScale.x;
+        localScaleY = transform.localScale.y;
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -42,17 +42,17 @@ public class PlayerMovement : MonoBehaviour
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
         }
 
-        float horMovementP2 = Input.GetAxis("Horizontal") * speed;
-        float vertMovementP2 = Input.GetAxis("Vertical") * speed;
+        float horMovement = Input.GetAxis("Horizontal") * speed;
+        float vertMovement = Input.GetAxis("Vertical") * speed;
 
         Rigidbody2D rb2 = GetComponent<Rigidbody2D>();
-        rb2.velocity = new Vector3(horMovementP2, vertMovementP2, 0);
+        rb2.velocity = new Vector3(horMovement, vertMovement, 0);
 
-        anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
-        anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+        //anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+        //anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMoving);
-        anim.SetFloat("LastMoveX", lastMove.x);
-        anim.SetFloat("LastMoveY", lastMove.y);
+        //anim.SetFloat("LastMoveX", lastMove.x);
+        //anim.SetFloat("LastMoveY", lastMove.y);
 
     }
 }
