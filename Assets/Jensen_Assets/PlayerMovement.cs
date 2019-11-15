@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private bool playerMoving;
     private Vector2 lastMove;
 
+    private GameObject swordObject;
+
     void Start()
     {
         
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         localScaleY = transform.localScale.y;
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        swordObject = gameObject.transform.GetChild(0).gameObject;
     }
 
     void FixedUpdate()
@@ -47,6 +50,48 @@ public class PlayerMovement : MonoBehaviour
 
         Rigidbody2D rb2 = GetComponent<Rigidbody2D>();
         rb2.velocity = new Vector3(horMovement, vertMovement, 0);
+
+        if (Input.GetAxisRaw("Fire1") > 0.5f)
+        {
+            if (swordObject.activeSelf == true)
+                return;
+
+            //swordObject.SetActive(true);
+
+            //LastMove to the right
+            if (lastMove.y == 0f && lastMove.x > 0f)
+            {
+                swordObject.transform.localPosition = new Vector3(0.029f, -0.0154f, -3.105568f);
+                swordObject.transform.rotation = new Quaternion(0, 0, 90, 0);
+                swordObject.SetActive(true);
+            }
+
+            //LastMove to the left
+            if (lastMove.y == 0f && lastMove.x < 0f)
+            {
+                swordObject.transform.localPosition = new Vector3(-0.0558f, -0.041f, -3.105568f);
+                swordObject.transform.rotation = new Quaternion(0, 0, 270, 0);
+                swordObject.SetActive(true);
+            }
+
+            //LastMove is down
+            if (lastMove.y < 0f && lastMove.x == 0f)
+            {
+                swordObject.transform.localPosition = new Vector3(-0.009999473f, -0.05247724f, -3.105568f);
+                swordObject.transform.rotation = Quaternion.identity;
+                swordObject.SetActive(true);
+            }
+
+            //LastMove is up
+            if (lastMove.y > 0f && lastMove.x == 0f)
+            {
+                swordObject.transform.localPosition = new Vector3(-0.003f, -0.02f, -3.105568f);
+                swordObject.transform.rotation = new Quaternion(0,0,180,0);
+                swordObject.SetActive(true);
+            }
+
+        }
+
 
         //anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         //anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));

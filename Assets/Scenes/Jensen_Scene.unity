@@ -270,6 +270,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212856279196523968, guid: a494fd8d1dbfc5846bba8e043693c1fe,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 61247651126411014, guid: a494fd8d1dbfc5846bba8e043693c1fe,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -327,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1739275481}
   - component: {fileID: 1739275482}
+  - component: {fileID: 1739275483}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -341,14 +347,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739275480}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.018571828, y: -0.058501255, z: -3.1055682}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: -0.0558, y: -0.041, z: -3.1055682}
   m_LocalScale: {x: 0.092859134, y: 0.092859134, z: 0.092859134}
   m_Children:
   - {fileID: 391280672}
   m_Father: {fileID: 1745501190}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!61 &1739275482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -375,6 +381,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.38, y: 0.37}
   m_EdgeRadius: 0
+--- !u!114 &1739275483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739275480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9307eb6edae46c048aa61d784142b184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1745501184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1888529394940424, guid: a494fd8d1dbfc5846bba8e043693c1fe,

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwordScript : MonoBehaviour
 {
-    public float rotationSpeed = 5;
+    float rotationSpeed = 500;
 
     void Start()
     {
@@ -14,10 +14,20 @@ public class SwordScript : MonoBehaviour
     // Update is called once per frame
     void OnEnable()
     {
-        while (transform.rotation.z != -180)
-        {
-            transform.Rotate(Vector3.back * (rotationSpeed * Time.deltaTime));
-        }
+        Invoke("UnEnable", 0.35f);
+        //transform.rotation = Quaternion.identity;
         
+
+    }
+
+    private void Update()
+    {
+        transform.Rotate(Vector3.back * (rotationSpeed * Time.deltaTime));
+    }
+
+    public void UnEnable()
+    {
+        gameObject.transform.rotation = Quaternion.identity;
+        gameObject.SetActive(false);
     }
 }
