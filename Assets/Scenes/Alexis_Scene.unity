@@ -203,12 +203,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &217966779 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4463468527310068, guid: a494fd8d1dbfc5846bba8e043693c1fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 1520575888}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &787644108
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +231,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787644108}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -262,7 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e57f57f1a6a47849937e76cb0279615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTarget: {fileID: 217966779}
+  playerTarget: {fileID: 1180357137}
+  waypoints: []
 --- !u!212 &787644111
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -320,7 +315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787644108}
   m_LocalRotation: {x: -0, y: -0, z: 0.009787462, w: 0.9999521}
-  m_LocalPosition: {x: -2.404847, y: 1.4188595, z: 0}
+  m_LocalPosition: {x: -2.21, y: 1.64, z: 0}
   m_LocalScale: {x: 0.90027, y: 0.90027, z: 0.90027}
   m_Children: []
   m_Father: {fileID: 0}
@@ -352,6 +347,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.25, y: 2.25}
   m_EdgeRadius: 0
+--- !u!1 &1180357137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1888529394940424, guid: a494fd8d1dbfc5846bba8e043693c1fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1520575888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1520575888
 PrefabInstance:
   m_ObjectHideFlags: 0
