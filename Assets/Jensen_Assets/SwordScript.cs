@@ -27,7 +27,7 @@ public class SwordScript : MonoBehaviour
 
     public void UnEnable()
     {
-        gameObject.transform.rotation = Quaternion.identity;
+        //gameObject.transform.rotation = Quaternion.identity;
         gameObject.SetActive(false);
     }
 }

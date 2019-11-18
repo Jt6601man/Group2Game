@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastMove;
 
     private GameObject swordObject;
+    private SpriteRenderer swordSprite;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         swordObject = gameObject.transform.GetChild(0).gameObject;
+        swordSprite = swordObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -56,13 +58,13 @@ public class PlayerMovement : MonoBehaviour
             if (swordObject.activeSelf == true)
                 return;
 
-            //swordObject.SetActive(true);
+            swordSprite.sortingOrder = 11;
 
             //LastMove to the right
             if (lastMove.y == 0f && lastMove.x > 0f)
             {
-                swordObject.transform.localPosition = new Vector3(0.029f, -0.0154f, -3.105568f);
-                swordObject.transform.rotation = new Quaternion(0, 0, 90, 0);
+                swordObject.transform.localPosition = new Vector3(0.035f, -0.0347f, -3.105568f);
+                swordObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 swordObject.SetActive(true);
             }
 
@@ -70,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
             if (lastMove.y == 0f && lastMove.x < 0f)
             {
                 swordObject.transform.localPosition = new Vector3(-0.0558f, -0.041f, -3.105568f);
-                swordObject.transform.rotation = new Quaternion(0, 0, 270, 0);
+                swordObject.transform.rotation = Quaternion.Euler(0, 0, 270);
                 swordObject.SetActive(true);
             }
 
@@ -85,8 +87,9 @@ public class PlayerMovement : MonoBehaviour
             //LastMove is up
             if (lastMove.y > 0f && lastMove.x == 0f)
             {
-                swordObject.transform.localPosition = new Vector3(-0.003f, -0.02f, -3.105568f);
-                swordObject.transform.rotation = new Quaternion(0,0,180,0);
+                swordSprite.sortingOrder = 9;
+                swordObject.transform.localPosition = new Vector3(-0.003f, 0.0023f, -3.105568f);
+                swordObject.transform.rotation = Quaternion.Euler(0, 0, 180);
                 swordObject.SetActive(true);
             }
 
