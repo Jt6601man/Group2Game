@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Shane_Scene.unity
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BossDungeon.unity
+    guid: af142ba1f0c91a94c8371e00c8344efc
+  - enabled: 1
+    path: Assets/Scenes/OpenWorld.unity
+    guid: 9a10875c16d1d4f4298f830afd01e577
+  - enabled: 1
+    path: Assets/Scenes/RegularDungeon.unity
+    guid: db7eef780dfb7da458492f62ccb0a628
   m_configObjects: {}

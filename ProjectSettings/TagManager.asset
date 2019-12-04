@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Sword
+  - toBoss
+  - toDungeon
+  - toWorld
   layers:
   - Default
   - TransparentFX
