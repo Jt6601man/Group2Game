@@ -5,6 +5,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public GameObject openChest;
+    public GameObject gun;
 
     Transform chestPosition;
 
@@ -18,9 +19,15 @@ public class Chest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (enemyDead)
         {
             Instantiate(openChest, chestPosition.position, chestPosition.rotation);
+            Instantiate(gun, chestPosition.position, chestPosition.rotation);
             Destroy(gameObject);
         }
     }
