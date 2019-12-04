@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private GameObject swordObject;
     private SpriteRenderer swordSprite;
 
+    //This is a private int to keep track of what layer the player is on
+    private int playerSortOrder;
+
     void Start()
     {
         //get the animator
@@ -32,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
         //get the spriteRenderer for the child of the sword object (this is where the sprite for the sword is
         //the swinging of the object and the sprite itself had to be seperated)
         swordSprite = swordObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        //This line of code gets and stores the sorting order of the player sprite
+        playerSortOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder;
     }
 
     void FixedUpdate()
@@ -73,10 +79,10 @@ public class PlayerMovement : MonoBehaviour
             if (swordObject.activeSelf == true)
                 return;
 
-            //Set the sorting order on the sprite to 11
+            //Set the sorting order on the sprite to 1 above the player
             //This is used to put the sword in front of the player
             //(when the player is moving up, it will be behind their sprite)
-            swordSprite.sortingOrder = 11;
+            swordSprite.sortingOrder = playerSortOrder + 1;
 
             //LastMove to the right
             if (lastMove.y == 0f && lastMove.x > 0f)
@@ -111,8 +117,8 @@ public class PlayerMovement : MonoBehaviour
             //LastMove is up
             if (lastMove.y > 0f && lastMove.x == 0f)
             {
-                //Sorting order 9 puts the sword behind the player sprite, as if they're swinging it from the front
-                swordSprite.sortingOrder = 9;
+                //this puts the sword under the player sprite, as if they're swinging it from the front
+                swordSprite.sortingOrder = playerSortOrder - 1;
 
                 //set the sword position and rotation to where it needs to be for this direction
                 //and set the sword to active
