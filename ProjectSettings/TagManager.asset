@@ -8,6 +8,9 @@ TagManager:
   - toBoss
   - toDungeon
   - toWorld
+  - Boss
+  - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX

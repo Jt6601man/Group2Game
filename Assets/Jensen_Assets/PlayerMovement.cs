@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
     //This is a private int to keep track of what layer the player is on
     private int playerSortOrder;
+    private SpriteRenderer playerSprite;
+
+    private int playerHealth = 3;
+    public GameObject[] hearts;
 
     void Start()
     {
@@ -38,10 +42,22 @@ public class PlayerMovement : MonoBehaviour
 
         //This line of code gets and stores the sorting order of the player sprite
         playerSortOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder;
+
+        playerSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
     {
+        //DEATH SCRIPTING
+        if (playerHealth == 0)
+        {
+            Debug.Log("PlayerHasDied");
+            //LoadLoseLevel
+            Destroy(gameObject);
+        }
+
+        //MOVEMENT SCRIPTING
+
         //Set player moving bool to false
         playerMoving = false;
 
@@ -52,6 +68,15 @@ public class PlayerMovement : MonoBehaviour
             playerMoving = true;
             //set last move to x = (the input axis value), y = 0)
             lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
+
+            if (Input.GetAxisRaw("Horizontal") > 0.5f)
+            {
+                playerSprite.flipX = true;
+            }
+            else
+            {
+                playerSprite.flipX = false;
+            }
         }
 
         //If axis for vertical
@@ -70,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
         //set the rigidBody velocity to those values for x and y, and z to 0
         myRigidbody.velocity = new Vector3(horMovement, vertMovement, 0);
 
+
+        //ATTACK SCRIPTING
 
         //Code for awake and swing sword
         //If the input axis for Fire1 is pressed (Set to spaceBar)
@@ -109,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //set the sword position and rotation to where it needs to be for this direction
                 //and set the sword to active
-                swordObject.transform.localPosition = new Vector3(-0.009999473f, -0.05247724f, -3.105568f);
+                swordObject.transform.localPosition = new Vector3(-0.009999473f, -1f, -3.105568f);
                 swordObject.transform.rotation = Quaternion.identity;
                 swordObject.SetActive(true);
             }
@@ -130,13 +157,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+        //ANIMATION SCRIPTING
         //Basis for animator code, currently unused
 
-        //anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
-        //anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+        anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+        anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMoving);
-        //anim.SetFloat("LastMoveX", lastMove.x);
-        //anim.SetFloat("LastMoveY", lastMove.y);
 
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "Boss")
+        {
+            playerHealth -= 1;
+            hearts[playerHealth].SetActive(false);
+        }
     }
 }
