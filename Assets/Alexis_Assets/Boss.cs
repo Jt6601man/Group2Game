@@ -63,7 +63,7 @@ public class Boss : MonoBehaviour
 
         if (healthBar.value == 0)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
             Destroy(gameObject);
         }
     }

@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b58beba030f0d24f9b863a48ead13ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: OpenWorld
+  sceneToLoad: Instructions
   aboutCanvas: {fileID: 2072968328}
 --- !u!114 &1860968515
 MonoBehaviour:
