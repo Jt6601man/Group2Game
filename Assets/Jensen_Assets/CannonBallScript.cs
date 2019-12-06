@@ -6,10 +6,13 @@ public class CannonBallScript : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    public float speed = 3;
+    private float acceleration;
 
     // Start is called before the first frame update
     void Start()
     {
+        acceleration += Time.deltaTime * speed;
         rb = gameObject.GetComponent<Rigidbody2D>();
         Invoke("Die", 3);
     }
@@ -17,7 +20,8 @@ public class CannonBallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(3, 0);
+        acceleration += Time.deltaTime * speed;
+        rb.velocity = transform.up * acceleration;
     }
 
     void Die()

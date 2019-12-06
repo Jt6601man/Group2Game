@@ -11,11 +11,14 @@ public class Stairs : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(gameObject.tag == "toWorld")
-            SceneManager.LoadScene("OpenWorld");
-        else if(gameObject.tag == "toBoss")
-            SceneManager.LoadScene("BossDungeon");
-        else if(gameObject.tag == "toDungeon")
-            SceneManager.LoadScene("RegularDungeon");
+        if (collision.gameObject.tag == "Player")
+        {
+            if (gameObject.tag == "toWorld")
+                SceneManager.LoadScene("OpenWorld");
+            else if (gameObject.tag == "toBoss")
+                SceneManager.LoadScene("BossDungeon");
+            else if (gameObject.tag == "toDungeon")
+                SceneManager.LoadScene("RegularDungeon");
+        }
     }
 }

@@ -24,6 +24,8 @@ public class Boss : MonoBehaviour
     //GameObject gun;
     Slider healthBar;
 
+    public GameObject projectile;
+
 
     void Start()
     {
@@ -35,6 +37,8 @@ public class Boss : MonoBehaviour
         healthBar = FindObjectOfType<Slider>();
         //Find sword by finding the players child gameobject
         sword = playerTarget.transform.GetChild(0).gameObject;
+
+        Invoke("Shoot", 2);
     }
 
     void Update()
@@ -90,6 +94,12 @@ public class Boss : MonoBehaviour
         }
        // else if (collision.gameObject == gun)
        //     Debug.Log("Gun Hit");
+    }
+
+    void Shoot()
+    {
+        Instantiate(projectile, gameObject.transform.position, gameObject.transform.rotation);
+        Invoke("Shoot", 2);
     }
 
 }
