@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private int playerSortOrder;
     private SpriteRenderer playerSprite;
 
+    private int playerHealth = 3;
+    public GameObject[] hearts;
+
     void Start()
     {
         //get the animator
@@ -45,6 +48,16 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //DEATH SCRIPTING
+        if (playerHealth == 0)
+        {
+            Debug.Log("PlayerHasDied");
+            //LoadLoseLevel
+            Destroy(gameObject);
+        }
+
+        //MOVEMENT SCRIPTING
+
         //Set player moving bool to false
         playerMoving = false;
 
@@ -82,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
         //set the rigidBody velocity to those values for x and y, and z to 0
         myRigidbody.velocity = new Vector3(horMovement, vertMovement, 0);
 
+
+        //ATTACK SCRIPTING
 
         //Code for awake and swing sword
         //If the input axis for Fire1 is pressed (Set to spaceBar)
@@ -142,11 +157,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+        //ANIMATION SCRIPTING
         //Basis for animator code, currently unused
 
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMoving);
 
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "Boss")
+        {
+            playerHealth -= 1;
+            hearts[playerHealth].SetActive(false);
+        }
     }
 }
