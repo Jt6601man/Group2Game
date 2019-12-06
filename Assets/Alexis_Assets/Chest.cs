@@ -10,6 +10,7 @@ public class Chest : MonoBehaviour
     Transform chestPosition;
 
     static bool enemyDead;
+    //bool enemyDead = true;
 
     void Start()
     {

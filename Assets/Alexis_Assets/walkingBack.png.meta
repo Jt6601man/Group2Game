@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: dc1eed2dd30c16f46b754a033fa5b1ed
+guid: 118d383342ba6c848be4204356471d8e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7822121557698985273
-    second: cannonBoss_0
+      213: -902963567762723116
+    second: walkingBack_0
   - first:
-      213: -4041515419027078514
-    second: cannonBoss_1
+      213: 2510589073986044674
+    second: walkingBack_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -92,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cannonBoss_0
+      name: walkingBack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -106,14 +106,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4f0f1c2eb06de843937a5c19923a85e
-      internalID: 7822121557698985273
+      spriteID: 73038268761318043836a92f89af9f8b
+      internalID: -902963567762723116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cannonBoss_1
+      name: walkingBack_1
       rect:
         serializedVersion: 2
         x: 512
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93edd89c030a5f64f90d3099411985e9
-      internalID: -4041515419027078514
+      spriteID: 02eaf887b9472d34983e0a3b48f0692b
+      internalID: 2510589073986044674
       vertices: []
       indices: 
       edges: []

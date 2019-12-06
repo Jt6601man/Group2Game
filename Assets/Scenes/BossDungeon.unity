@@ -12433,7 +12433,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fcf84f49d26823a40930ea4a3dadd31a,
+      objectReference: {fileID: 7822121557698985273, guid: dc1eed2dd30c16f46b754a033fa5b1ed,
         type: 3}
     - target: {fileID: 3610935827863442029, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
         type: 3}
@@ -12535,16 +12535,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7120482440640009059, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 53549548}
-    - target: {fileID: 7120482440640009059, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7733520239399062517, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -12580,10 +12570,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.065000005
       objectReference: {fileID: 0}
+    - target: {fileID: 7120482440640009059, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 53549548}
+    - target: {fileID: 7120482440640009059, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6669362058329384683, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -7.0999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201940505118068489, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839394735043357094, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
         type: 3}
@@ -12594,11 +12599,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9201940505118068489, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
-        type: 3}
-      propertyPath: m_Value
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a12d68fdb9572f41bbdf573ad1228e2, type: 3}
