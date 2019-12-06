@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private int playerHealth = 3;
     public GameObject[] hearts;
 
+    public GameObject bullet;
+    private Quaternion shootRotation;
+    private bool justShot = false;
+
     void Start()
     {
         //get the animator
@@ -156,6 +160,44 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        if (Input.GetAxisRaw("Fire2") > 0.5f)
+        {
+            if (justShot == true)
+                return;
+
+            //LastMove to the right
+            if (lastMove.y == 0f && lastMove.x > 0f)
+            {
+                shootRotation = Quaternion.Euler(0, 0, 270);
+                Invoke("Shoot", 0.5f);
+                justShot = true;
+            }
+
+            //LastMove to the left
+            if (lastMove.y == 0f && lastMove.x < 0f)
+            {
+                shootRotation = Quaternion.Euler(0,0,90);
+                Invoke("Shoot", 0.5f);
+                justShot = true;
+            }
+
+            //LastMove is down
+            if (lastMove.y < 0f && lastMove.x == 0f)
+            {
+                shootRotation = Quaternion.Euler(0, 0, 180);
+                Invoke("Shoot", 0.5f);
+                justShot = true;
+            }
+
+            //LastMove is up
+            if (lastMove.y > 0f && lastMove.x == 0f)
+            {
+                shootRotation = Quaternion.identity;
+                Invoke("Shoot", 0.5f);
+                justShot = true;
+            }
+
+        }
 
         //ANIMATION SCRIPTING
         //Basis for animator code, currently unused
@@ -177,5 +219,11 @@ public class PlayerMovement : MonoBehaviour
                 hearts[playerHealth].SetActive(false);
             }
         }
+    }
+
+    private void Shoot()
+    {
+        Instantiate(bullet, gameObject.transform.position, shootRotation);
+        justShot = false;
     }
 }
