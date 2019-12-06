@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
 
     //This is a private int to keep track of what layer the player is on
     private int playerSortOrder;
-    private SpriteRenderer playerSprite;
 
     void Start()
     {
@@ -39,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
 
         //This line of code gets and stores the sorting order of the player sprite
         playerSortOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder;
-
-        playerSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -55,15 +52,6 @@ public class PlayerMovement : MonoBehaviour
             playerMoving = true;
             //set last move to x = (the input axis value), y = 0)
             lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
-
-            if (Input.GetAxisRaw("Horizontal") > 0.5f)
-            {
-                playerSprite.flipX = true;
-            }
-            else
-            {
-                playerSprite.flipX = false;
-            }
         }
 
         //If axis for vertical
@@ -121,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //set the sword position and rotation to where it needs to be for this direction
                 //and set the sword to active
-                swordObject.transform.localPosition = new Vector3(-0.009999473f, -1f, -3.105568f);
+                swordObject.transform.localPosition = new Vector3(-0.009999473f, -0.05247724f, -3.105568f);
                 swordObject.transform.rotation = Quaternion.identity;
                 swordObject.SetActive(true);
             }
@@ -144,9 +132,11 @@ public class PlayerMovement : MonoBehaviour
 
         //Basis for animator code, currently unused
 
-        anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
-        anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+        //anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+        //anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMoving);
+        //anim.SetFloat("LastMoveX", lastMove.x);
+        //anim.SetFloat("LastMoveY", lastMove.y);
 
     }
 }
