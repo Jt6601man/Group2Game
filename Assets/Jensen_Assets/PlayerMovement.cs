@@ -20,11 +20,13 @@ public class PlayerMovement : MonoBehaviour
     private GameObject swordObject;
     private SpriteRenderer swordSprite;
 
+    static public bool gotGun;
+
     //This is a private int to keep track of what layer the player is on
     private int playerSortOrder;
     private SpriteRenderer playerSprite;
 
-    private int playerHealth = 3;
+    static public int playerHealth = 3;
     public GameObject[] hearts;
 
     void Start()
@@ -44,6 +46,24 @@ public class PlayerMovement : MonoBehaviour
         playerSortOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder;
 
         playerSprite = gameObject.GetComponent<SpriteRenderer>();
+
+        if (PlayerPrefs.HasKey("gotHealth"))
+        {
+            playerHealth = PlayerPrefs.GetInt("gotHealth");
+
+            for (int i = 2; i > playerHealth - 1; i--)
+                hearts[i].SetActive(false);
+        }
+
+        if (PlayerPrefs.HasKey("gotGun"))
+        {
+            int gunNum = PlayerPrefs.GetInt("gotGun");
+
+            if (gunNum == 0)
+                gotGun = false;
+            else
+                gotGun = true;
+        }
     }
 
     void FixedUpdate()

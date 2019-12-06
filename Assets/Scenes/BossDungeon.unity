@@ -12454,6 +12454,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3610935827863442029, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610935827863442029, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3610935827863442028, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
         type: 3}
       propertyPath: playerTarget
