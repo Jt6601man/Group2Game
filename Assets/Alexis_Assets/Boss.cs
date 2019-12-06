@@ -89,11 +89,14 @@ public class Boss : MonoBehaviour
         //collision with the player object
         if (sword.activeSelf == true && collision.gameObject.tag == "Player")
         {
-            currentHealth -= swordDamage; //Subtract the sword damage amound from the curent health
+            currentHealth -= swordDamage; //Subtract the sword damage amount from the curent health
             healthBar.value = currentHealth; //Set the healthBar value to the current health value
         }
-       // else if (collision.gameObject == gun)
-       //     Debug.Log("Gun Hit");
+       else if (collision.gameObject.tag == "Bullet")
+        {
+            currentHealth -= gunDamage; //Subtract the bullet damage amount from the curent health
+            healthBar.value = currentHealth; //Set the healthBar value to the current health value
+        }
     }
 
     void Shoot()
