@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerHealth == 0)
         {
             Debug.Log("PlayerHasDied");
-            //LoadLoseLevel
+            SceneManager.LoadScene(5);
             Destroy(gameObject);
         }
 

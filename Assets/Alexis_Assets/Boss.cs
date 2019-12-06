@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Boss : MonoBehaviour
 {
@@ -61,6 +63,7 @@ public class Boss : MonoBehaviour
 
         if (healthBar.value == 0)
         {
+            SceneManager.LoadScene(4);
             Destroy(gameObject);
         }
     }

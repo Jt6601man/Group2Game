@@ -12489,6 +12489,12 @@ PrefabInstance:
       propertyPath: gunDamage
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3610935827863442028, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 2090086637449573799, guid: 0f9d3139610d379469ce00ee59cca881,
+        type: 3}
     - target: {fileID: 6036556771952474335, guid: 2a12d68fdb9572f41bbdf573ad1228e2,
         type: 3}
       propertyPath: m_LocalRotation.y

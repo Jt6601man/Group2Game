@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7347b2a70c5cdaa43a8bdb6001384c48
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/BossDungeon.unity
     guid: af142ba1f0c91a94c8371e00c8344efc
@@ -20,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RegularDungeon.unity
     guid: db7eef780dfb7da458492f62ccb0a628
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 2602b21d188493647a816212df370a65
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: df3803aab6a45fa408861bf26ababb40
   m_configObjects: {}
