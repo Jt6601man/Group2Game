@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 61247651126411014}
   - component: {fileID: 114836909621468800}
   - component: {fileID: 1745501185}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -643,6 +643,7 @@ MonoBehaviour:
   - {fileID: 456832498}
   - {fileID: 1831837937}
   - {fileID: 780961480}
+  bullet: {fileID: 7769430444141500052, guid: 91773b8698c766c449e3986885f2b7be, type: 3}
 --- !u!95 &1745501185
 Animator:
   serializedVersion: 3

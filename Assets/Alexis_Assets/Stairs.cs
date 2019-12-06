@@ -27,12 +27,14 @@ public class Stairs : MonoBehaviour
         PlayerPrefs.SetInt("gotGun", gotGunAsInt);
         PlayerPrefs.Save();
 
-        if(gameObject.tag == "toWorld")
-            SceneManager.LoadScene("OpenWorld");
-        else if(gameObject.tag == "toBoss")
-            SceneManager.LoadScene("BossDungeon");
-        else if(gameObject.tag == "toDungeon")
-            SceneManager.LoadScene("RegularDungeon");
-
+        if (collision.gameObject.tag == "Player")
+        {
+            if (gameObject.tag == "toWorld")
+                SceneManager.LoadScene("OpenWorld");
+            else if (gameObject.tag == "toBoss")
+                SceneManager.LoadScene("BossDungeon");
+            else if (gameObject.tag == "toDungeon")
+                SceneManager.LoadScene("RegularDungeon");
+        }
     }
 }
