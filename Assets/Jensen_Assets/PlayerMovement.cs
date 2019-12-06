@@ -169,10 +169,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "Boss")
+        if (swordObject.activeSelf == false)
         {
-            playerHealth -= 1;
-            hearts[playerHealth].SetActive(false);
+            if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "Boss")
+            {
+                playerHealth -= 1;
+                hearts[playerHealth].SetActive(false);
+            }
         }
     }
 }
