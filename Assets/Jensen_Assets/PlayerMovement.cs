@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private int playerSortOrder;
     private SpriteRenderer playerSprite;
 
-    static public int playerHealth = 3;
+    private int playerHealth = 3;
     public GameObject[] hearts;
 
     public GameObject bullet;
@@ -50,24 +50,6 @@ public class PlayerMovement : MonoBehaviour
         playerSortOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder;
 
         playerSprite = gameObject.GetComponent<SpriteRenderer>();
-
-        if (PlayerPrefs.HasKey("gotHealth"))
-        {
-            playerHealth = PlayerPrefs.GetInt("gotHealth");
-
-            for (int i = 2; i > playerHealth - 1; i--)
-                hearts[i].SetActive(false);
-        }
-
-        if (PlayerPrefs.HasKey("gotGun"))
-        {
-            int gunNum = PlayerPrefs.GetInt("gotGun");
-
-            if (gunNum == 0)
-                gotGun = false;
-            else
-                gotGun = true;
-        }
     }
 
     void FixedUpdate()
@@ -76,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerHealth == 0)
         {
             Debug.Log("PlayerHasDied");
+            playerHealth = 3;
             SceneManager.LoadScene(6);
             Destroy(gameObject);
         }
@@ -228,6 +211,25 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void ChangeHealth(int health)
+    {
+        playerHealth = health;
+    }
+
+    public void ChangeHeartActive(int index)
+    {
+        hearts[index].SetActive(false);
+    }
+
+    public int GetHealth()
+    {
+        return playerHealth;
+    }
+
+    public void GotGun(bool gun)
+    {
+        gotGun = gun;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -245,5 +247,16 @@ public class PlayerMovement : MonoBehaviour
     {
         Instantiate(bullet, gameObject.transform.position, shootRotation);
         justShot = false;
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("gotHealth", 3);
+
+        if (gotGun == false)
+            PlayerPrefs.SetInt("gotGun", 0);
+        else if (gotGun == true)
+            PlayerPrefs.SetInt("gotGun", 1);
+        PlayerPrefs.Save();
     }
 }

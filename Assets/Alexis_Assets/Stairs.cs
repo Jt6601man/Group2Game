@@ -15,7 +15,9 @@ public class Stairs : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentHealth = PlayerMovement.playerHealth;
+        PlayerMovement playerStuff = FindObjectOfType<PlayerMovement>();
+
+        currentHealth = playerStuff.GetHealth();
         gotGun = PlayerMovement.gotGun;
 
         if (gotGun)
