@@ -9,8 +9,6 @@ public class Chest : MonoBehaviour
 
     Transform chestPosition;
 
-    static bool enemyDead;
-    //bool enemyDead = true;
 
     void Start()
     {
@@ -25,11 +23,8 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (enemyDead)
-        {
-            Instantiate(openChest, chestPosition.position, chestPosition.rotation);
-            Instantiate(gun, chestPosition.position, chestPosition.rotation);
-            Destroy(gameObject);
-        }
+        Instantiate(openChest, chestPosition.position, chestPosition.rotation);
+        Instantiate(gun, chestPosition.position, chestPosition.rotation);
+        Destroy(gameObject);
     }
 }
