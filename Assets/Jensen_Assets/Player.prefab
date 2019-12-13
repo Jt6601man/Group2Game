@@ -644,6 +644,8 @@ MonoBehaviour:
   - {fileID: 1831837937}
   - {fileID: 780961480}
   bullet: {fileID: 7769430444141500052, guid: 91773b8698c766c449e3986885f2b7be, type: 3}
+  gun: {fileID: 8300000, guid: 398a4ef537af1cf41b8b50895e26f8be, type: 3}
+  sword: {fileID: 8300000, guid: 23cd81a7f4a084a4e8319707ced58438, type: 3}
 --- !u!95 &1745501185
 Animator:
   serializedVersion: 3

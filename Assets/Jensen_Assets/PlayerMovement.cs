@@ -20,18 +20,28 @@ public class PlayerMovement : MonoBehaviour
     private GameObject swordObject;
     private SpriteRenderer swordSprite;
 
+    //This checks for if the player has picked up the gun powerup
+    //and is connected to globals
     static public bool gotGun;
 
     //This is a private int to keep track of what layer the player is on
     private int playerSortOrder;
     private SpriteRenderer playerSprite;
 
+    //int and gameobject array for player hearts on screen
+    //connected to globals for cross scene health
     private int playerHealth = 3;
     public GameObject[] hearts;
 
+    //prefab for gun bullet, rotation for shooting, and bool for 
+    //if it was just shot (for timing)
     public GameObject bullet;
     private Quaternion shootRotation;
     private bool justShot = false;
+
+    //sound effects
+    public AudioClip gun;
+    public AudioClip sword;
 
     void Start()
     {
@@ -118,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
             //(when the player is moving up, it will be behind their sprite)
             swordSprite.sortingOrder = playerSortOrder + 1;
 
+            AudioSource.PlayClipAtPoint(sword, gameObject.transform.position);
+
             //LastMove to the right
             if (lastMove.y == 0f && lastMove.x > 0f)
             {
@@ -165,8 +177,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxisRaw("Fire2") > 0.5f)
         {
+            if (gotGun == false)
+                return;
+
             if (justShot == true)
                 return;
+
+            AudioSource.PlayClipAtPoint(gun, gameObject.transform.position);
 
             //LastMove to the right
             if (lastMove.y == 0f && lastMove.x > 0f)
@@ -240,6 +257,12 @@ public class PlayerMovement : MonoBehaviour
                 playerHealth -= 1;
                 hearts[playerHealth].SetActive(false);
             }
+        }
+
+        if (collision.gameObject.tag == "Pickup")
+        {
+            gotGun = true;
+            Destroy(collision.gameObject);
         }
     }
 
