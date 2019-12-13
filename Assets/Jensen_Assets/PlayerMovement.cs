@@ -252,11 +252,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("gotHealth", 3);
-
-        if (gotGun == false)
-            PlayerPrefs.SetInt("gotGun", 0);
-        else if (gotGun == true)
-            PlayerPrefs.SetInt("gotGun", 1);
+        PlayerPrefs.SetInt("gotGun", 0);
         PlayerPrefs.Save();
     }
 }
