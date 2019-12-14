@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("PlayerHasDied");
             playerHealth = 3;
             SceneManager.LoadScene(6);
-            Destroy(gameObject);
         }
 
         //MOVEMENT SCRIPTING
